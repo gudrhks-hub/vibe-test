@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인박스 만들기</title>
+    <style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        border: 3px solid red;
+        /* container : 화면을 전체를 의미
+           display : ~방식으로 정렬한다. 정렬방식 : flex
+           justify-content : box안의 내용의 위치를 정함 - center
+           
+           
+            */
+    }
+    .login-box{
+        /*선그리기 : 두께 선모양 색상*/
+        border: 1px solid black;
+        width: 400px;
+        height: 350px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: aquamarine;
+    }
+    .title{
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: blue;       
+    }
+    input {
+        width: 300px;
+        height: 40px;
+        border-radius: 2px;
+        border: 0;
+        border-bottom: 1px solid black;
+        outline: 0;
+        margin-top: 10px;
+    }
+    .btn-group{                    
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .ok-btn{
+        width: 90px;
+        height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        color : white;
+        background-color: beige;
+        border: 0;
+        border-radius: 5px;
+    }
+    .find-btn{                     
+        width: auto;
+        padding: 0 15px;
+        white-space: nowrap;
+        /* white-space=띄어쓰기,빈칸을 어떻게 처리 할것인지
+        nowrap=안바꿈을 의미 */
+        font-size: 15px;
+        color: aqua;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="title">
+                Login
+            </div>
+            <div>
+                <input type="text" placeholder="ID">
+
+            </div>
+            <div>
+                <input type="password" placeholder="password">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="ok-btn find-btn">로그인</button>
+                <button type="button" class="ok-btn find-btn">아이디/비번찾기</button>
+                <button type="button" class="ok-btn find-btn">회원가입</button>
+            </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
