@@ -6,3 +6,6 @@ CLAUDE.local.md
 
 # 별도 git 저장소 (중첩 저장소)
 git-test02/
+
+# 로컬 전용 파일
+day10/weather.html
