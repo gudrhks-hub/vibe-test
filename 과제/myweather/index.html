@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" id="themeColor" content="#CFE8FA">
+  <title>오늘 날씨</title>
+  <link rel="icon" href="data:,">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body data-theme="day">
+  <main class="container py-4">
+    <!-- 헤더 -->
+    <header class="d-flex flex-wrap align-items-center gap-2 mb-2">
+      <h1 class="site-title me-auto mb-0">
+        <i class="bi bi-cloud-sun" aria-hidden="true"></i> 오늘 날씨
+      </h1>
+
+      <form id="searchForm" class="search-form d-flex gap-2" autocomplete="off" novalidate>
+        <div class="position-relative flex-grow-1">
+          <input type="text" id="searchInput" class="form-control input-glass"
+            placeholder="서울, Busan, Tokyo" aria-label="도시 검색">
+          <div id="searchResults" class="search-results list-group d-none"></div>
+        </div>
+        <button type="submit" id="searchBtn" class="btn btn-glass" aria-label="검색">
+          <i class="bi bi-search" aria-hidden="true"></i>
+        </button>
+        <button type="button" id="locationBtn" class="btn btn-glass" aria-label="내 위치 날씨 보기">
+          <i class="bi bi-crosshair" aria-hidden="true"></i>
+        </button>
+        <button type="button" id="unitBtn" class="btn btn-glass unit-btn" aria-label="온도 단위 전환"></button>
+      </form>
+    </header>
+    <p id="searchError" class="search-error small mb-2 d-none"></p>
+
+    <!-- 즐겨찾기 -->
+    <div id="favoriteList" class="favorite-list d-flex flex-wrap align-items-center gap-2 mb-3"></div>
+
+    <!-- 현재 날씨 -->
+    <section id="currentCard" class="card-glass p-3 p-md-4 mb-3" aria-live="polite"></section>
+
+    <!-- 3시간 간격 예보 -->
+    <section class="card-glass p-3 mb-3">
+      <h2 class="section-title">3시간 간격 예보</h2>
+      <div id="hourlyList" class="hourly-list"></div>
+    </section>
+
+    <!-- 5일 예보 / 상세 정보 -->
+    <div class="row g-3">
+      <div class="col-lg-6">
+        <section class="card-glass p-3 h-100">
+          <h2 class="section-title">5일 예보</h2>
+          <div id="dailyList"></div>
+        </section>
+      </div>
+      <div class="col-lg-6">
+        <section class="card-glass p-3 h-100">
+          <h2 class="section-title">상세 정보</h2>
+          <div id="detailGrid" class="detail-grid"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- 토스트 -->
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="appToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div id="appToastBody" class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="닫기"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

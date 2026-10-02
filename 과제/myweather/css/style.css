@@ -1,0 +1,375 @@
+/* ===== 테마 변수 ===== */
+body[data-theme="day"] {
+  --bg: #CFE8FA;
+  --card: rgba(255, 255, 255, 0.55);
+  --solid: #EAF4FC;
+  --text: #0C2B4A;
+  --text-sub: #3B5B7A;
+  --accent: #E8920C;
+  --pop: #1B64B5;
+}
+
+body[data-theme="night"] {
+  --bg: #14213D;
+  --card: rgba(255, 255, 255, 0.08);
+  --solid: #22304F;
+  --text: #EEF2FA;
+  --text-sub: #A9B6CF;
+  --accent: #F4D35E;
+  --pop: #8EC9FF;
+}
+
+body[data-theme="cloudy"] {
+  --bg: #C7CCD3;
+  --card: rgba(255, 255, 255, 0.45);
+  --solid: #DCDFE4;
+  --text: #2B2F36;
+  --text-sub: #4E5560;
+  --accent: #5F6B7A;
+  --pop: #1A55A0;
+}
+
+body[data-theme="snow"] {
+  --bg: #E3E8EE;
+  --card: rgba(255, 255, 255, 0.7);
+  --solid: #F3F5F8;
+  --text: #25303D;
+  --text-sub: #56636F;
+  --accent: #6E8FB5;
+  --pop: #2763A8;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.6s, color 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+.text-sub {
+  color: var(--text-sub);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* ===== 공통 카드 / 입력 ===== */
+.card-glass {
+  background-color: var(--card);
+  border-radius: 16px;
+}
+
+.site-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  margin-bottom: 0.75rem;
+}
+
+.input-glass,
+.input-glass:focus {
+  background-color: var(--card);
+  color: var(--text);
+  border-color: transparent;
+}
+
+.input-glass::placeholder {
+  color: var(--text-sub);
+  opacity: 0.8;
+}
+
+.btn-glass {
+  --bs-btn-bg: var(--card);
+  --bs-btn-color: var(--text);
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--card);
+  --bs-btn-hover-color: var(--text);
+  --bs-btn-hover-border-color: var(--text-sub);
+  --bs-btn-active-bg: var(--card);
+  --bs-btn-active-color: var(--text);
+  --bs-btn-active-border-color: var(--text-sub);
+  --bs-btn-disabled-bg: var(--card);
+  --bs-btn-disabled-color: var(--text-sub);
+  --bs-btn-disabled-border-color: transparent;
+}
+
+.unit-btn {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.unit-btn .unit-off {
+  color: var(--text-sub);
+  font-weight: 400;
+}
+
+.unit-btn .unit-on {
+  font-weight: 700;
+}
+
+/* ===== 검색 ===== */
+.search-form {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .search-form {
+    width: auto;
+  }
+
+  .search-form .position-relative {
+    width: 220px;
+  }
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-results .list-group-item {
+  background-color: var(--solid);
+  color: var(--text);
+  border-color: var(--card);
+  font-size: 0.9rem;
+}
+
+.search-results .list-group-item:hover,
+.search-results .list-group-item:focus {
+  background-color: var(--bg);
+}
+
+.search-error {
+  color: var(--pop);
+}
+
+/* ===== 즐겨찾기 ===== */
+.favorite-list {
+  font-size: 0.85rem;
+  min-height: 32px;
+}
+
+.fav-chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--card);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fav-chip button {
+  background: none;
+  border: none;
+  color: var(--text);
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.fav-chip .fav-remove {
+  padding-left: 0;
+  color: var(--text-sub);
+}
+
+.fav-chip button:hover {
+  text-decoration: underline;
+}
+
+/* ===== 현재 날씨 ===== */
+.current-icon {
+  font-size: 72px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.current-temp {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.fav-toggle {
+  background: none;
+  border: none;
+  padding: 0 4px;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.pop-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: var(--card);
+  font-size: 0.85rem;
+}
+
+/* 강수확률 강조 */
+.pop-low {
+  color: var(--text-sub);
+}
+
+.pop-high {
+  color: var(--pop);
+  font-weight: 600;
+}
+
+/* ===== 3시간 예보 ===== */
+.hourly-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.hour-item {
+  flex: 0 0 auto;
+  min-width: 72px;
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 12px;
+  background-color: var(--card);
+  font-size: 0.85rem;
+}
+
+.hour-item .wx-icon {
+  display: block;
+  font-size: 1.6rem;
+  margin: 4px 0;
+  color: var(--accent);
+}
+
+.hour-item .hour-temp {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.hour-item .hour-pop {
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+/* ===== 5일 예보 ===== */
+.day-row {
+  display: grid;
+  grid-template-columns: 44px 28px 52px 36px 1fr 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 0.95rem;
+}
+
+.day-row + .day-row {
+  border-top: 1px solid var(--card);
+}
+
+.day-row .wx-icon {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.day-row .day-pop {
+  font-size: 0.75rem;
+}
+
+.day-row .day-min {
+  text-align: right;
+  color: var(--text-sub);
+}
+
+.temp-bar {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--card);
+}
+
+.temp-bar span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background-color: var(--accent);
+}
+
+/* ===== 상세 정보 ===== */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.tile {
+  background-color: var(--card);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.tile-wide {
+  grid-column: 1 / -1;
+}
+
+.tile-label {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  margin-bottom: 2px;
+}
+
+.tile-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tile-note {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+
+/* ===== 로딩 / 오류 ===== */
+.placeholder {
+  background-color: var(--text-sub);
+}
+
+.error-box {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+
+.error-box .bi {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+@media (max-width: 575.98px) {
+  .current-icon {
+    font-size: 56px;
+  }
+
+  .current-temp {
+    font-size: 2.8rem;
+  }
+
+  .day-row {
+    grid-template-columns: 36px 24px 46px 32px 1fr 32px;
+    gap: 6px;
+    font-size: 0.9rem;
+  }
+}

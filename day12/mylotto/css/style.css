@@ -1,0 +1,160 @@
+body {
+  background-color: #f5f6f8;
+}
+
+/* 번호판 카드 상단 강조선 */
+.board-fixed {
+  border-top: 3px solid var(--bs-primary);
+}
+
+.board-excluded {
+  border-top: 3px solid var(--bs-danger);
+}
+
+/* 번호판 */
+.num-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.num-btn {
+  height: 36px;
+  padding: 0;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #212529;
+  font-size: 14px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.num-btn:hover:not(:disabled) {
+  background-color: #f1f3f5;
+}
+
+.num-btn.is-fixed {
+  background-color: var(--bs-primary-bg-subtle);
+  border-color: var(--bs-primary);
+  color: var(--bs-primary-text-emphasis);
+  font-weight: 600;
+}
+
+.num-btn.is-excluded {
+  background-color: var(--bs-danger-bg-subtle);
+  border-color: var(--bs-danger);
+  color: var(--bs-danger-text-emphasis);
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.num-btn:disabled {
+  color: #c4c8cc;
+  background-color: #fafafa;
+  cursor: not-allowed;
+}
+
+/* 결과 행 */
+.result-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.set-label {
+  width: 20px;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.set-type {
+  font-size: 12px;
+  color: #adb5bd;
+}
+
+/* 로또 공 */
+.ball {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.15);
+  animation: ball-pop 0.3s ease-out both;
+}
+
+.ball-yellow { background-color: #fbc400; }
+.ball-blue   { background-color: #69c8f2; }
+.ball-red    { background-color: #ff7272; }
+.ball-gray   { background-color: #aaaaaa; }
+.ball-green  { background-color: #b0d840; }
+
+.ball.is-fixed {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+
+@keyframes ball-pop {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* 복사 버튼 성공 상태 */
+/* Bootstrap 버튼 변수를 덮어써야 hover/active 상태에서도 초록색 유지 */
+.btn.is-copied {
+  --bs-btn-color: var(--bs-success-text-emphasis);
+  --bs-btn-bg: var(--bs-success-bg-subtle);
+  --bs-btn-border-color: var(--bs-success);
+  --bs-btn-hover-color: var(--bs-success-text-emphasis);
+  --bs-btn-hover-bg: var(--bs-success-bg-subtle);
+  --bs-btn-hover-border-color: var(--bs-success);
+  --bs-btn-active-color: var(--bs-success-text-emphasis);
+  --bs-btn-active-bg: var(--bs-success-bg-subtle);
+  --bs-btn-active-border-color: var(--bs-success);
+}
+
+/* 토스트 위치: 데스크톱 우측 하단, 모바일 하단 중앙 */
+.toast-pos {
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 575.98px) {
+  .toast-pos {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .num-btn {
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .ball {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  /* 한 줄에 공 6개 + 복사 버튼이 들어가도록 */
+  .result-row {
+    gap: 6px;
+  }
+
+  .copy-btn .btn-text {
+    display: none;
+  }
+}
