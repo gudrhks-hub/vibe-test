@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="start"> ~
+    <input type="number" name="" id="end">
+    <span id="result">?</span>
+    <button type="button" onclick="add();">결과</button>
+</body>
+<script>
+    function add() {
+    const num01 = document.getElementById('start').value;
+    const num02 = document.getElementById('end').value;
+    let result = 0;
+    const resultspan = document.getElementById('result');
+    for(let i = Number(num01); i <= Number(num02); i++) {
+    if (i % 2 === 0) {        
+        result = result + i;
+    }
+        resultspan.textContent = result;
+    }
+
+
+}
+</script>
+</html>

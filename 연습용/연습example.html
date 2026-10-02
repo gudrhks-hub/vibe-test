@@ -11,32 +11,35 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        border: 3px solid red;
-        /* container : 화면을 전체를 의미
-           display : ~방식으로 정렬한다. 정렬방식 : flex
-           justify-content : box안의 내용의 위치를 정함 - center
-           
-           
-            */
+        
+       
     }
     .login-box{
         /*선그리기 : 두께 선모양 색상*/
         border: 1px solid black;
-        width: 400px;
+        width: 400px;                       
         height: 350px;
-        border-radius: 20px;
+        border-radius: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: aquamarine;
+        /* border: 테두리 두께
+           width: 박스의 가로 길이
+           height: 박스의 세로 길이
+           border-radius : 모서리 조절 높을수록 원형으로 변함
+           display:flex :정렬을 한다
+           flex-direction-column: 내용물을 세로로 쌓다
+            */
     }
     .title{
         text-align: center;
         font-size: 30px;
-        font-weight: bold;
+        font-weight: normal;
         margin-bottom: 10px;
-        color: blue;       
+        color: blue; 
+              /*  */
     }
     input {
         width: 300px;
@@ -44,14 +47,21 @@
         border-radius: 2px;
         border: 0;
         border-bottom: 1px solid black;
-        outline: 0;
+        outline: 10;
         margin-top: 10px;
+        /* 입력칸
+        border=0 테두리 없앰
+        border-bottom =테두리 아래쪽 부분
+        outline : 클릭했을때 생기는 테두리 부분
+        margin-top : 입력칸 사이의 위쪽  */
     }
     .btn-group{                    
         width: 300px;
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
+        /* 로그인/찾기/회원가입 버튼
+         justify-content : space-betwnnm; = 양 끝에 붙이고, 남은 공간은 사이에 똑같이 나누기 */
     }
     .ok-btn{
         width: 90px;
